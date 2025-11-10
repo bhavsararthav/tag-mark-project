@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oblique Animation</title>
+<style>
+  body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
+  }
+
+  .box {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #48AB77, #B096CF);
+    transform: skewX(-20deg);
+    animation: obliqueMove 3s ease-in-out infinite alternate;
+    border-radius: 10px;
+  }
+
+  @keyframes obliqueMove {
+    0% {
+      transform: translate(0, 0) skewX(-20deg);
+    }
+    50% {
+      transform: translate(150px, -100px) skewX(-20deg);
+    }
+    100% {
+      transform: translate(300px, 0) skewX(-20deg);
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>

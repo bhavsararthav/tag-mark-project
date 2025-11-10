@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smooth Ball Animation</title>
+  <style>
+  /* CSS */
+:root{
+  --size: 56px;
+  --skew-angle: -18deg;
+  --duration: 3.2s;
+}
+
+.stage{
+  width: 560px;
+  height: 160px;
+  border: 1px dashed #ddd;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: linear-gradient(90deg,#fafafa,#fff);
+}
+
+.ball{
+  --offset: 0;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: linear-gradient(180deg,#ff9a56,#ff6b6b);
+  position: absolute;
+  left: -80px; /* start off-screen */
+  top: calc(50% - (var(--size) / 2));
+  transform: translate(0,0) skewX(var(--skew-angle));
+  will-change: transform;
+  animation: oblique-slide var(--duration) linear infinite;
+}
+
+/* animate translateX and translateY (diagonal) and rotate for a dynamic feel */
+@keyframes oblique-slide {
+  0% {
+    transform: translate(-20px, 0px) skewX(var(--skew-angle)) rotate(0deg);
+  }
+  50% {
+    transform: translate(620px, -28px) skewX(var(--skew-angle)) rotate(180deg);
+  }
+  100% {
+    transform: translate(-20px, 0px) skewX(var(--skew-angle)) rotate(360deg);
+  }
+}
+
+  </style>
+</head>
+<body>
+ <!-- HTML -->
+<div class="stage">
+  <div class="ball"></div>
+</div>
+
+</body>
+</html>
