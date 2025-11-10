@@ -22,14 +22,99 @@ body {
   padding: 40px 0px;
 }
 
+.who-we-are{
+  background: #0B140A;
+  padding: 40px 0px;
+}
+
 .owl-carousel .owl-nav.disabled{
   display: block;
+}
+
+.who-we-are .main-title h2{
+  font-size: 48px;
+  color: #fff;
+}
+
+.integration{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 20px;
+  margin-top: 40px;
+}
+
+.boxes-demo{
+  background: #48AB77;
+  border-radius: 15px;
+  padding-bottom: 15px;
+}
+
+.boxes-demo p{
+  margin-bottom: 0px;
+  font-size: 20px;
+}
+
+.boxes-demo span{
+  color: #fff;
+  font-size: 36px;
+}
+
+.gradeint-text{
+  background: linear-gradient(180deg, #48AB77 0%, #EAB6AC 46.15%, #B096CF 100%);
+   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.our-goals{
+  padding: 40px 0px;
+  background: #0B140A;
+}  
+
+.our-goals .main-title h2{
+  color: #fff;
+} 
+
+.our-goals .main-title p{
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.hypher-link a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.story-line {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 22px;
 }
 
 .case-studies .owl-nav button.owl-prev {
     position: absolute;
     left: -70px;
     top: 40%;
+}
+
+.white-boxes{
+  background: #fff;
+  padding: 40px 20px;
+  background: url('../images/white-bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.light-greens{
+  background: #48AB7799;
+  padding: 30px;
+}
+
+.light-greens h5{
+  font-weight: 600;
 }
 
 .case-studies .owl-nav button.owl-next{
