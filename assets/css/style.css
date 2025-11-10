@@ -117,6 +117,25 @@ body {
   font-weight: 600;
 }
 
+.our-team{
+  padding: 40px 0px;
+  background: #0B140A;
+}
+
+.our-team .main-title h2{
+  color: #fff;
+}
+
+.our-team .main-title p{
+  color: #fff;
+  font-weight: 600;
+}
+
+.our-team .main-title p{
+  font-weight: 500;
+  font-size: 16px;
+}
+
 .case-studies .owl-nav button.owl-next{
     position: absolute;
     right: -70px;
