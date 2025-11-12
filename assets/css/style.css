@@ -31,6 +31,13 @@ body {
   display: block;
 }
 
+.home-demo .owl-theme .owl-dots .owl-dot span{
+  width: 49px;
+  height: 2px;
+  margin: 5px 0px;
+  border-radius: 0px;
+}
+
 .who-we-are .main-title h2{
   font-size: 48px;
   color: #fff;
@@ -1285,6 +1292,32 @@ section.vertical-tabs-section {
     width: 100%;
     height: auto;
    }
+
+   .icon-wrapper svg {
+    width: 50px;
+    height: 50px;
+   }
+
+   .green-box{
+    padding: 5px;
+    font-size: 16px;
+   }
+
+   .green-box p{
+    font-size: 14px;
+   }
+
+   .green-box a{
+    font-size: 14px;
+   }
+
+  .hero-section .main-title{
+    padding: 100px 0px 70px;
+   }
+
+   .custom-card:hover .me-icon{
+    left: -50px;
+   }
    
    .me-icon{
     position: absolute;
@@ -1292,11 +1325,16 @@ section.vertical-tabs-section {
    }
 
    .hero-section .main-title h1{
-    font-size: 40px;
+    font-size: 32px;
+    margin-top: 0px;
    }
 
    .hero-section .main-title p{
     font-size: 16px;
+   }
+
+   br{
+    display: none;
    }
 
    .hero-section{
