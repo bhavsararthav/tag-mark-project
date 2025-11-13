@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Image Overlay Examples</title>
+  <style>
+    :root{
+      --gap: 20px;
+      --card-w: 320px;
+      --radius: 12px;
+      --transition: 250ms ease;
+      --overlay-color: rgba(0,0,0,0.45);
+      --accent: #ff6b6b;
+    }
+
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      margin: 32px;
+      background: #f6f7fb;
+      color: #222;
+      display: flex;
+      gap: var(--gap);
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    h1{width:100%; text-align:center; margin-bottom:8px}
+    p.lead{width:100%; text-align:center; color:#4b5563; margin-top:0}
+
+    /* ---- Card / image wrapper base ---- */
+    .card{
+      width: var(--card-w);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(16,24,40,0.08);
+      background: white;
+    }
+
+    .img-wrap{
+      position: relative;
+      display:block;
+      width:100%;
+      aspect-ratio: 16/10; /* maintain good default ratio */
+      background: #ddd center/cover no-repeat;
+    }
+
+    .img-wrap img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
+    /* ---- Overlay layer (center content) ---- */
+    .overlay {
+      position: absolute;
+      inset: 0; /* top:0; right:0; bottom:0; left:0 */
+      display: grid;
+      place-items: center; /* center content */
+      padding: 16px;
+      pointer-events: none; /* lets clicks pass through unless child sets it */
+    }
+
+    /* simple translucent overlay */
+    .overlay .mask{
+      position:absolute; inset:0; background: var(--overlay-color); transition: background var(--transition);
+    }
+
+    .overlay .content{
+      position:relative; z-index: 2; color: white; text-align:center; pointer-events: auto;
+      transform: translateY(6px);
+      opacity: 0;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    /* reveal on hover */
+    .card:hover .overlay .mask{ background: rgba(0,0,0,0.55); }
+    .card:hover .overlay .content{ transform: translateY(0); opacity:1; }
+
+    .overlay h3{ margin:0 0 6px; font-size:18px; letter-spacing:0.1px }
+    .overlay p{ margin:0; font-size:13px; opacity:0.95 }
+
+    .btn{
+      display:inline-block; margin-top:10px; padding:8px 12px; border-radius:8px; text-decoration:none; font-weight:600;
+      background: linear-gradient(90deg,var(--accent), #ff8a8a);
+      color:white; box-shadow: 0 6px 18px rgba(255,107,107,0.18);
+    }
+
+    /* ---- Bottom caption overlay ---- */
+    .caption {
+      position:absolute; left:0; right:0; bottom:0; padding:12px 14px; backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.48)); color:white;
+      display:flex; align-items:center; gap:10px; pointer-events:auto;
+    }
+
+    .badge{ background: rgba(255,255,255,0.12); padding:6px 8px; border-radius:999px; font-size:12px }
+
+    /* ---- Gradient overlay example ---- */
+    .gradient .mask{ background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%); }
+
+    /* ---- Icon overlay (top-left) ---- */
+    .corner {
+      position:absolute; top:10px; left:10px; z-index:3; pointer-events:auto;
+    }
+
+    /* ---- Play button in center ---- */
+    .play {
+      width:64px; height:64px; border-radius:999px; display:grid; place-items:center; background: rgba(255,255,255,0.1);
+      border:2px solid rgba(255,255,255,0.18); transition: transform var(--transition);
+    }
+    .card:hover .play{ transform: scale(1.07); }
+
+    /* ---- subtle hover zoom for image ---- */
+    .img-wrap img{ transition: transform 350ms cubic-bezier(.2,.9,.2,1); }
+    .card:hover img{ transform: scale(1.06); }
+
+    /* responsive tweaks */
+    @media (max-width:420px){
+      :root{ --card-w: 92vw }
+    }
+
+    /* ---- Layout examples container ---- */
+    .grid{ display:flex; gap:var(--gap); flex-wrap:wrap; align-items:flex-start }
+    .example{ display:flex; flex-direction:column; gap:8px }
+    .example small{ color:#6b7280 }
+  </style>
+</head>
+<body>
+  <h1>Image overlay — HTML + CSS examples</h1>
+  <p class="lead">Hover the cards to see overlays. All pure CSS, accessible and responsive.</p>
+
+  <div class="grid">
+
+    <!-- Example 1: centered text overlay -->
+    <div class="card example">
+      <div class="img-wrap" style="background-image:url('https://images.unsplash.com/photo-1506765515384-028b60a970df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80')">
+        <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="mountains and lake"/>
+        <div class="overlay">
+          <div class="mask" aria-hidden="true"></div>
+          <div class="content" role="group" aria-label="Card actions">
+            <h3>Explore the peaks</h3>
+            <p>Scenic hiking routes &amp; weekend getaways.</p>
+            <a class="btn" href="#">View</a>
+          </div>
+        </div>
+      </div>
+      <small>Centered overlay with reveal on hover</small>
+    </div>
+
+    <!-- Example 2: bottom caption -->
+    <div class="card example">
+      <div class="img-wrap" style="background-image:url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80')">
+        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib

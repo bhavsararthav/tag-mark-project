@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bottom to Center + P on Hover</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: #0a0a0a;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+ 
+      .hover-card {
+        position: relative;
+        width: 380px;
+        height: 520px;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+        transition: all 0.4s ease;
+      }
+ 
+      .hover-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 35px 80px rgba(0, 0, 0, 0.9);
+      }
+ 
+      .card-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.9s ease;
+      }
+ 
+      .hover-card:hover .card-img {
+        transform: scale(1.15);
+      }
+ 
+      /* Light transparent green overlay */
+      .green-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 191, 114, 0.22) 0%,
+          rgba(0, 255, 149, 0.12) 100%
+        );
+        transition: opacity 0.7s ease;
+      }
+ 
+      .hover-card:hover .green-overlay {
+        opacity: 0;
+      }
+ 
+      /* Content container */
+      .card-content {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        padding: 0 10px;
+        text-align: center;
+        color: white;
+        transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+        /* Default: at bottom */
+        bottom: -100px;
+      }
+ 
+      /* On hover: move to center */
+      .hover-card:hover .card-content {
+        bottom: 50%;
+        transform: translateX(-50%) translateY(50%);
+      }
+ 
+      .icon {
+        width: 84px;
+        height: 84px;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        transition: transform 0.5s ease;
+      }
+ 
+      .hover-card:hover .icon {
+        transform: scale(1.1);
+      }
+ 
+      .icon svg {
+        width: 48px;
+        height: 48px;
+        fill: #00bf72;
+      }
+ 
+      .card-content h3 {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      }
+ 
+      /* Paragraph - hidden by default */
+      .card-content p {
+        font-size: 1.02rem;
+        line-height: 1.7;
+        max-width: 320px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease 0.2s;
+        text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+      }
+ 
+      /* Show paragraph only on hover */
+      .hover-card:hover .card-content p {
+        opacity: 0.95;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-8">
+          <div class="hover-card">
+            <!-- Background Image -->
+            <img
+              src="./assets/images/product-1.png"
+              alt="AI Automation"
+              class="card-img"
+            />
+ 
+            <!-- Light Green Overlay -->
+            <div class="green-overlay"></div>
+ 
+            <!-- Content -->
+            <div class="card-content">
+              <div class="icon">
+                   <svg width="55" height="65" viewBox="0 0 55 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_131_490)">
+                        <path d="M9.46118 3.73535H41.551V3.73633H41.9143C46.8882 3.73658 51.0635 8.45966 51.0588 14.416V43.333C51.0588 49.2948 46.8838 54.0134 41.9075 54.0137H10.8459L10.7043 54.1357L0.977783 62.585H0.976807L0.971924 62.5898C0.902861 62.6517 0.821769 62.6796 0.745361 62.6797C0.688176 62.6797 0.633488 62.6659 0.583252 62.6357L0.573486 62.6299L0.522705 62.5947C0.406852 62.5016 0.309875 62.3249 0.309814 62.0967V14.415C0.30996 8.4532 4.48476 3.73536 9.46118 3.73535ZM9.46606 4.90234C4.83501 4.90234 1.18489 9.24238 1.18481 14.415V61.0264L2.01294 60.3076L10.4924 52.9404C10.5711 52.8734 10.6578 52.8467 10.7258 52.8467H41.9114C46.5425 52.8467 50.1926 48.5057 50.1926 43.333L50.1917 14.415C50.1916 9.24277 46.5418 4.90234 41.9104 4.90234H9.46606ZM23.1956 10.957H28.1829C28.3566 10.957 28.6184 11.1475 28.6184 11.541C28.6182 11.9342 28.3565 12.124 28.1829 12.124H26.1243V16.7354H34.4172C37.3404 16.7354 39.8408 19.5173 39.8411 23.0957V23.957H42.6106C43.6933 23.9571 44.6961 24.9426 44.8225 26.3262L44.8362 26.6074V34.0371C44.836 35.572 43.7709 36.6855 42.6174 36.6855H39.8479V37.5459C39.8479 41.1245 37.3484 43.9072 34.425 43.9072H16.9602C14.0369 43.9071 11.5374 41.1244 11.5374 37.5459V36.6855H8.76782C7.60865 36.6855 6.54927 35.5654 6.54907 34.0371V26.6055C6.5492 25.0705 7.61436 23.957 8.76782 23.957H11.5374V23.0957C11.5376 19.5174 14.0371 16.7354 16.9602 16.7354H25.2542V12.124H23.1956C23.0219 12.124 22.7602 11.9342 22.76 11.541C22.76 11.1475 23.0219 10.957 23.1956 10.957ZM16.9553 17.9072C14.3741 17.9072 12.4027 20.3135 12.4026 23.1016V37.5459C12.4026 40.3438 14.3824 42.7402 16.9553 42.7402H34.4172C36.9983 42.7402 38.9697 40.3348 38.97 37.5469L38.9729 36.1025V23.1016C38.9728 20.3039 36.9929 17.9074 34.4202 17.9072H16.9553ZM21.9485 36.958H29.4299C29.6061 36.9581 29.8655 37.1448 29.8655 37.541C29.8654 37.9343 29.6036 38.1239 29.4299 38.124H21.9485C21.7748 38.124 21.513 37.9344 21.5129 37.541C21.5129 37.1475 21.7748 36.958 21.9485 36.958ZM39.8401 35.5186H42.6106C43.4204 35.5183 43.9571 34.7831 43.9573 34.0371V26.6113C43.9573 25.8652 43.4206 25.1301 42.6106 25.1299H39.8401V35.5186ZM8.76294 25.124C7.95286 25.124 7.41548 25.8593 7.41528 26.6055V34.0312C7.41538 34.7775 7.9528 35.5127 8.76294 35.5127H11.5325V25.124H8.76294ZM20.0774 23.958C21.9656 23.958 23.6301 25.7728 23.6301 28.1523C23.63 30.5398 21.9683 32.3467 20.0774 32.3467C18.1894 32.3465 16.5248 30.5316 16.5247 28.1523C16.5247 25.7729 18.1893 23.9582 20.0774 23.958ZM31.3 23.958C33.1907 23.958 34.8528 25.77 34.8528 28.1523C34.8526 30.5318 33.1882 32.3467 31.3 32.3467C29.412 32.3466 27.7475 30.5317 27.7473 28.1523C27.7473 25.7729 29.4119 23.9581 31.3 23.958ZM20.0774 25.124C18.5318 25.1242 17.3958 26.5542 17.3958 28.1523C17.3959 29.7504 18.5319 31.1795 20.0774 31.1797C21.6258 31.1797 22.7599 29.7501 22.76 28.1523C22.76 26.5541 21.6231 25.124 20.0774 25.124ZM31.3 25.124C29.7544 25.1241 28.6184 26.5541 28.6184 28.1523C28.6186 29.7504 29.7545 31.1796 31.3 31.1797C32.8484 31.1797 33.9825 29.7501 33.9827 28.1523C33.9827 26.5541 32.8458 25.124 31.3 25.124Z" fill="url(#paint0_linear_131_490)" stroke="url(#paint1_linear_131_490)"/>
+                        </g>
+                        <defs>
+                        <linearGradient id="paint0_linear_131_490" x1="-0.190186" y1="33.2076" x2="51.5584" y2="33.2076" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#48AB77"/>
+                        <stop offset="0.461536" stop-color="#EAB6AC"/>
+                        <stop offset="1" stop-color="#B096CF"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_131_490" x1="-0.190186" y1="33.2076" x2="51.5584" y2="33.2076" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#48AB77"/>
+                        <stop offset="0.461536" stop-color="#EAB6AC"/>
+                        <stop offset="1" stop-color="#B096CF"/>
+                        </linearGradient>
+                        <clipPath id="clip0_131_490">
+                        <rect width="55" height="65" fill="white"/>
+                        </clipPath>
+                        </defs>
+                        </svg>
+              </div>
+              <h3>AI Automation Systems</h3>
+              <p>
+                Streamline operations with intelligent automation. Boost
+                efficiency, reduce costs, and scale faster with cutting-edge AI
+                solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+ 
+ 
