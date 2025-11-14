@@ -74,6 +74,10 @@ $("#case-studies").owlCarousel({
     dots: true,
     autoplay: true,
     autoplayTimeout: 3000,
+    navText: [
+    "<img src='./assets/images/previous.png' class='nav-btn prev-slide'>",
+     "<img src='./assets/images/next.png' class='nav-btn prev-slide'>",
+    ],
     responsive: {
        0: {
        items: 1 // for mobile
@@ -87,3 +91,56 @@ $("#case-studies").owlCarousel({
     },
     autoplayHoverPause: true,
 });
+
+
+
+$(document).ready(function() {
+    var owl = $('#case-studies');
+    var totalItems = $('#case-studies .item').length;
+    var progressBar = $('.progress-bar-fill');
+
+    // 1. Initialize Owl Carousel with custom settings
+    owl.owlCarousel({
+        loop: false, // Don't loop for a step-bar effect
+        margin: 10,
+        nav: false, // Disable default navigation
+        dots: false, // Disable default dots
+        items: 1, // Display one item at a time
+        responsive: {
+            0: { items: 1 },
+            600: { items: 1 },
+            1000: { items: 1 }
+        }
+    });
+
+    // Function to calculate and update the progress bar
+    function updateProgressBar(event) {
+        // Owl Carousel uses a 0-based index
+        var currentIndex = event.item.index; 
+        
+        // Calculate total items including clones if looping, but for step-bar
+        // we usually want the total unique items.
+        // If loop is false, totalItems should be correct.
+        
+        var progress = ((currentIndex + 1) / totalItems) * 100;
+
+        progressBar.css('width', progress + '%');
+    }
+
+    // 2. Event handler for slide change
+    owl.on('initialized.owl.carousel translated.owl.carousel', function(event) {
+        updateProgressBar(event);
+    });
+
+    // Initialize progress bar on first load
+    // owl.trigger('initialized.owl.carousel'); // This is usually triggered automatically
+
+    // 3. Map custom buttons to Owl Carousel navigation
+    $('.owl-next-custom').click(function() {
+        owl.trigger('next.owl.carousel');
+    });
+
+    $('.owl-prev-custom').click(function() {
+        owl.trigger('prev.owl.carousel');
+    });
+});   
