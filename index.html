@@ -25,6 +25,48 @@
       animation: float 3s ease-in-out infinite;
       }
 
+
+        .case-studies {
+    /* Optional: To position the custom nav relative to the case-studies div */
+    position: relative;
+}
+
+.custom-owl-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px; /* Adjust spacing as needed */
+    width: 100%;
+}
+
+.owl-prev-custom,
+.owl-next-custom {
+    background: none;
+    border: none;
+    color: #999; /* Light grey for arrows */
+    font-size: 30px;
+    cursor: pointer;
+    padding: 0 15px;
+    outline: none;
+}
+
+/* Progress Bar Styling */
+.progress-bar-container {
+    flex-grow: 1; /* Allows the bar to take up available space */
+    height: 8px;
+    background-color: #333; /* Dark background color of the bar */
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 400px; /* Constrain bar width if desired */
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%; /* Initial width is 0% */
+    background-color: #5cb85c; /* Green color for the progress fill */
+    transition: width 0.3s ease; /* Smooth transition for progress update */
+}
+
       .owl-theme .owl-nav [class*=owl-]:hover{
         background: none !important;
       }
@@ -2337,6 +2379,17 @@
         </div>
         </div>
       </div>
+
+       <div class="custom-owl-nav">
+        <button class="owl-prev-custom"><</button>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill"></div>
+        </div>
+
+        <button class="owl-next-custom">></button>
+    </div>
+
     </section>
 
     <!-- <section class="vertical-tabs-section" style="background: url('./assets/images/b1eaba9e52a3cf116397e24d2bf13e5f4c11ab1d.png') center/cover no-repeat;">
@@ -2467,7 +2520,6 @@
 
       </div>
       </div>
-
     </section>
 
     <section class="blogs">
@@ -2496,7 +2548,9 @@
               <div class="blog-desc">
                 Learn the key elements behind building web apps that grow with your business — including scalability, speed, and security.
               </div>
-              <button class="btn-learn-more">Learn More</button>
+              <div class="access-more">
+                  <button class="btn-learn-more">Learn More</button>
+              </div>
             </div>
           </div>
           <!-- Right Small Blogs -->
@@ -2506,12 +2560,12 @@
                 <div class="card-body">
                   <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1fDB8MHx8fHx8fHx8fHwxNjkxMTA4MDI1&ixlib=rb-4.0.3&q=80&w=400" alt="Web app development" />
                   <div class="small-content">
-                    <div class="small-post-meta">
-                      <span>Oct 18, 2025</span>
-                      <span>2 Comments</span>
-                    </div>
                     <div class="small-title">
                       Why Every Business Needs a Scalable Web App
+                    </div>
+                      <div class="small-post-meta">
+                      <span>Oct 18, 2025</span>
+                      <span><span class="text-white">2</span> Comments</span>
                     </div>
                   </div>
                   <button class="btn-small-learn-more align-self-end">Learn More</button>
@@ -2521,12 +2575,12 @@
                 <div class="card-body">
                   <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1fDB8MHx8fHx8fHx8fHwxNjkxMTA4MDM5&ixlib=rb-4.0.3&q=80&w=400" alt="Working at desk" />
                   <div class="small-content">
-                    <div class="small-post-meta">
-                      <span>Oct 18, 2025</span>
-                      <span>2 Comments</span>
-                    </div>
                     <div class="small-title">
                       Why Every Business Needs a Scalable Web App
+                    </div>
+                       <div class="small-post-meta">
+                      <span>Oct 18, 2025</span>
+                      <span><span class="text-white">2</span> Comments</span>
                     </div>
                   </div>
                   <button class="btn-small-learn-more align-self-end">Learn More</button>
@@ -2536,12 +2590,12 @@
                 <div class="card-body">
                   <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1fDB8MHx8fHx8fHx8fHwxNjkxMTA4MDU3&ixlib=rb-4.0.3&q=80&w=400" alt="Programmer screen" />
                   <div class="small-content">
-                    <div class="small-post-meta">
-                      <span>Oct 18, 2025</span>
-                      <span>2 Comments</span>
-                    </div>
                     <div class="small-title">
                       Why Every Business Needs a Scalable Web App
+                    </div>
+                     <div class="small-post-meta">
+                      <span>Oct 18, 2025</span>
+                      <span><span class="text-white">2</span> Comments</span>
                     </div>
                   </div>
                   <button class="btn-small-learn-more align-self-end">Learn More</button>
