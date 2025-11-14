@@ -22,6 +22,15 @@ body {
   padding: 40px 0px;
 }
 
+.icon-side img{
+  visibility: hidden;
+}
+
+.custom-card:hover .icon-side img {
+  visibility: visible;
+}
+
+
 
 .hover-card {
         position: relative;
@@ -752,7 +761,7 @@ font-weight: 600;
 
 .hero-section {
   height: 100vh; /* makes it full screen */
-  background: url('../images/new-test.png') no-repeat center center/cover; /* optional background */
+  background: url('../images/Background Image_Tagmark 1.png') no-repeat center center/cover; /* optional background */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -838,8 +847,12 @@ font-weight: 600;
   position: relative;
   width: 60px;
   height: 60px;
+  z-index: 5;
 }
-
+ .card-custom:hover .card-header-icon{
+  background-color: #48AB77;
+  border: 2px solid white;
+}
 .icon-wrapper svg{
   width: 60px;
   height: 60px;
@@ -866,7 +879,7 @@ font-weight: 600;
   height: 50px;
   background-color: #a6d8b9;
   border-radius: 50%;
-  z-index: 1;
+  z-index: -1;
   transition: all 0.4s ease;
 }
 
@@ -956,12 +969,9 @@ ease;
       margin-bottom: 40px;
     }
     .card-custom {
-  background-image: url('./assets/images/b1eaba9e52a3cf116397e24d2bf13e5f4c11ab1d.png');
   background-repeat: no-repeat;
   background-size: contain; /* Ensures full image fits inside */
   background-position: center top; /* Keeps it aligned neatly */
-  border: 1px solid #2F4F21;
-  border-radius: 40px;
   padding: 20px;
   color: #C7D1BD;
   transition: all 0.4s ease;
@@ -970,26 +980,34 @@ ease;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+  border-radius: 40px;
 }
 
 .card-custom:hover {
   border-color: #4FAA4B;
-  box-shadow: 0 0 15px #4FAA4Baa;
   transform: translateY(-5px);
+  background-image: url('../images/Rectangle.png');
+  border: 1px solid #2F4F21;
+  border-radius: 40px;
+  min-height: 230px;
+  width: 90%;
+  background-repeat: no-repeat;
+  background-size: contain; /* Ensures full image fits inside */
+  background-position: center top;
 }
 
 /* ===== ICON AREA ===== */
 .card-header-icon {
-  position: absolute;
-  top: 20px;
-  right: 47px;
-  width: 32px;
-  height: 32px;
-  border: 1.5px solid #353535;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+ position: absolute;
+    top: 13px;
+    right: 41px;
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid #353535;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
     .main-icon-card {
@@ -1674,6 +1692,7 @@ section.vertical-tabs-section {
    .icon-wrapper svg {
     width: 50px;
     height: 50px;
+    z-index: 2;
    }
 
    .green-box{
