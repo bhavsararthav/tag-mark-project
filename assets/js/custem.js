@@ -40,7 +40,33 @@ $(function() {
       }
     }
   });
+
+  
 });
+
+
+$("#event-slider").owlCarousel({
+    items: 4,
+    margin: 10,
+    loop: true,
+    nav: true,
+    dots: true,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    responsive: {
+       0: {
+       items: 1 // for mobile
+      },
+      600:{
+        items:2
+      },
+      1000:{
+        items:4
+      }
+    },
+    autoplayHoverPause: true,
+});
+
 
 
 $("#myslider").owlCarousel({
@@ -64,6 +90,8 @@ $("#myslider").owlCarousel({
     },
     autoplayHoverPause: true,
 });
+
+
 
 
 $("#case-studies").owlCarousel({
@@ -95,8 +123,8 @@ $("#case-studies").owlCarousel({
 
 
 $(document).ready(function() {
-    var owl = $('#case-studies');
-    var totalItems = $('#case-studies .item').length;
+    var owl = $('#mystudy');
+    var totalItems = $('#mystudy .item').length;
     var progressBar = $('.progress-bar-fill');
 
     // 1. Initialize Owl Carousel with custom settings
